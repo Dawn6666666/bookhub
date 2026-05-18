@@ -1,7 +1,10 @@
 package org.example.bookhub.common;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class PageResponse<T> {
 
     private long total;
@@ -20,37 +23,5 @@ public class PageResponse<T> {
         response.size = safeSize;
         response.records = allRecords.subList(fromIndex, toIndex);
         return response;
-    }
-
-    public long getTotal() {
-        return total;
-    }
-
-    public void setTotal(long total) {
-        this.total = total;
-    }
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public List<T> getRecords() {
-        return records;
-    }
-
-    public void setRecords(List<T> records) {
-        this.records = records;
     }
 }

@@ -19,6 +19,7 @@ BookHub 是一个面向期末大作业的轻量图书管理系统，采用 `Spri
 - Spring Boot 3.3.5
 - MyBatis-Plus 3.5.7
 - MySQL 8
+- Lombok
 - Spring Validation
 - Spring Security Crypto
 - Vue 3
