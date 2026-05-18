@@ -52,6 +52,13 @@ public class DataInitializer implements CommandLineRunner {
             student.setRole(RoleConstants.USER);
             student.setStatus(StatusConstants.ENABLED);
             userMapper.insert(student);
+        } else {
+            // Force update passwords to ensure they match the current encoder (Fix for data.sql hash mismatch)
+            String encoded123456 = passwordEncoder.encode("123456");
+            for (User user : userMapper.selectList(null)) {
+                user.setPassword(encoded123456);
+                userMapper.updateById(user);
+            }
         }
 
         if (categoryMapper.selectCount(null) == 0) {
